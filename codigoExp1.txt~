@@ -1,0 +1,11 @@
+label1:	LDA A
+SUB provolone
++LDA A
+LDA A
+label3:	SUB cheddar
+LDA A
+label4:	LDA A
+SUB prato
+HLT
+
+

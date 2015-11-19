@@ -1,0 +1,27 @@
+		LDB #6 .fibonacci a ser calculado
+
+		LDX #2 .comparação
+
+		LDA #1
+
+		LDL #1 .fib 0
+		LDS #1 .fib 1
+
+		COMPR B, X
+		JLT fim .pula se for fib de 0 ou 1
+
+loop:	STL 1000 .auxiliar
+
+		ADDR S, L
+
+		LDS 1000 .agora vai
+
+		COMP B, X
+		JLT fim
+
+		SUBR B, A
+		J loop
+
+fim:	STL 1001
+
+

@@ -1,0 +1,56 @@
+/* 
+ * File:   Registradores.h
+ * Author: erick
+ *
+ * Created on 13 de Abril de 2015, 11:32
+ */
+/*    10 x 24 bit registers
+
+  MNEMONIC 	  Register # 	  Comment/note
+  A 	  0 	  Accumulator
+  X 	  1 	  Index register
+  L 	  2 	  Linkage register (JSUB/RSUB)
+  B  	  3 	  Base register (SIC/XE)
+  S       4 	  General register (SIC/XE)
+  T  	  5 	  General register (SIC/XE)
+  F	  6 	  Floating Point Accumulator (48 bits)  (SIC/XE) 
+          7        (segunda parte do f, ele tem 2 words)
+  PC 	  8 	  Program Counter (PC)
+  SW 	  9 	  Status Word (includes Condition Code, CC) 
+  */  
+#ifndef REGISTRADORES_H
+#define	REGISTRADORES_H
+
+class Registradores{
+    int registrador[10];
+    
+public:
+    Registradores();
+    
+    int getPorIndice(int indice);
+    int getA();
+    int getX();
+    int getL();
+    int getB();
+    int getS();
+    int getT();
+    int getF();
+    int getPC();
+    int getSW();
+   
+    void setPorIndice(int indice, int valor);
+    void setA(int valor);
+    void setX(int valor);
+    void setL(int valor);
+    void setB(int valor);
+    void setS(int valor);
+    void setT(int valor);
+    void setF(int valor);
+	void setFFloat(int valor);
+    void setPC(int valor);
+    void setSW(int valor);
+    void incPC();
+};
+
+#endif	/* REGISTRADORES_H */
+

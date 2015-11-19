@@ -1,0 +1,6 @@
+EXTREF batata
+LDA #9
+LDB #3
+ADDR B, A
+COMPR A, X
+STSW 30

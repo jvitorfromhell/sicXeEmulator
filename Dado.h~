@@ -1,0 +1,23 @@
+#ifndef DADO_H
+#define	DADO_H
+
+using namespace std;
+
+class Dado{
+    
+    int dado;
+    int endereco;
+    
+public:
+    Dado(int dado, int endereco);
+    Dado& operator=(const Dado &dadoDireita);
+    int getDado();
+    int getEndereco();
+    void setDado(int dado);
+    void setEndereco(int endereco);  
+};
+
+int localizarDado(int end);
+
+#endif	/* DADO_H */
+

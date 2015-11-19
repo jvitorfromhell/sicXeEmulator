@@ -1,0 +1,18 @@
+	 QUEIJO MACRO var2
+	  SUB var2
+	 MEND
+	 
+label1:	 LDA A
+	 QUEIJO provolone
+	 +LDA A
+	 LDA A
+label3:	 QUEIJO cheddar
+	 LDA A
+label4:	 LDA A
+	 QUEIJO prato
+	 HLT
+
+A: WORD 10
+provolone: WORD 13 
+cheddar: BYTE AF
+prato: WORD 8000

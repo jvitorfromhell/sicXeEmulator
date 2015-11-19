@@ -1,0 +1,39 @@
+/* 
+ * File:   Instrucao.h
+ * Author: erick
+ *
+ * Created on 13 de Abril de 2015, 11:43
+ */
+
+#ifndef INSTRUCAO_H
+#define	INSTRUCAO_H
+
+class Instrucao{
+    int opcode;
+    int r1,r2;
+    int nixbpe[6];
+    int displacement;    
+    int adress;
+    int tamanho;
+public:
+    Instrucao(int opcode);
+    Instrucao(int opcode, int r1, int r2);
+    Instrucao(int opcode, int *nixbpe, int displacement);
+    Instrucao(int opcode,int *nixbpe, int adress, int soprasobrecarregar);
+    
+    int getOpcode();
+    int getR1();
+    int getR2();
+    int getAdress();
+    int getdisplacement();
+    int getSize();
+    bool isNon();
+    bool isIon();
+    bool isXon();
+    bool isBon();
+    bool isPon();
+    bool isEon();
+};
+
+#endif	/* INSTRUCAO_H */
+

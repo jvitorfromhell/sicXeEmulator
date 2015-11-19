@@ -1,0 +1,25 @@
+Lista de instrucoes arrumadas
+ADD m
+ADDr r1,r2
+SUB m
+MUL m - criado
+DIV m
+DIVR r1,r2
+CLEAR r1
+COMP m
+COMPR r1,r2 - nao funcionaco loop
+AND m
+OR m
+J m
+LDA m
+LDX m
+LDL m
+LDB m
+LDS m
+LDT m
+STA m
+STX m
+STL m
+STB m
+STS m
+STT m

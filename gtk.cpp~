@@ -1,0 +1,58 @@
+#include <iostream>
+#include <gtkmm.h>
+
+using namespace std;
+
+int main(int argc, char** argv) {
+	int i, j;
+	char *reg[10] = {"A - R0", "X - R1", "L - R2", "B - R3", "S - R4", "T - R5", "F - R6 (High)", "F - R7 (Low)", "PC - R8", "SW - R9"};
+
+	Glib::RefPtr<Gtk::Application> aplicacao = Gtk::Application::create(argc, argv, "Simulador SIC/XE");	
+
+	GtkWidget *janela;
+	GtkWidget *executa, *stepByStep;
+	GtkWidget *layout, *registradores;
+	GtkWidget *label;
+	GtkWidget *programa, *memoria; 
+
+	gtk_init(&argc, &argv);
+
+	janela = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	gtk_window_set_title(GTK_WINDOW(janela), "Simulador SIC/XE");
+	gtk_window_set_default_size(GTK_WINDOW(janela), 640, 480);
+	gtk_window_set_position(GTK_WINDOW(janela), GTK_WIN_POS_CENTER);
+	
+	layout = gtk_fixed_new();
+	gtk_container_add(GTK_CONTAINER(janela), layout);
+
+	programa = gtk_entry_new();
+	gtk_entry_set_max_length (GTK_ENTRY(programa), 50);
+	gtk_entry_set_text(GTK_ENTRY(programa), "BANANA\n");	
+	gtk_fixed_put(GTK_FIXED(layout), programa, 50, 50);
+
+	registradores = gtk_table_new(8, 2, TRUE);
+	gtk_fixed_put(GTK_FIXED(layout), registradores, 400, 50);
+	gtk_table_set_row_spacings(GTK_TABLE(registradores), 10);
+	gtk_table_set_col_spacings(GTK_TABLE(registradores), 2);
+
+	for (i=0; i<10; i++){
+		label = gtk_label_new(reg[i]);
+		gtk_table_attach_defaults(GTK_TABLE(registradores), label, 0, 1, i, i+1);
+		label = gtk_label_new("0000");
+		gtk_table_attach_defaults(GTK_TABLE(registradores), label, 1, 2, i, i+1);
+	}
+	
+	executa = gtk_button_new_with_label("Executar Programa");
+	gtk_fixed_put(GTK_FIXED(layout), executa, 150, 420);	
+	gtk_widget_set_size_request(executa, 150, 50);
+
+	stepByStep = gtk_button_new_with_label("Passo a passo");
+	gtk_fixed_put(GTK_FIXED(layout), stepByStep, 350, 420);	
+	gtk_widget_set_size_request(stepByStep, 150, 50);
+
+	gtk_widget_show_all(janela);
+
+	g_signal_connect(janela, "destroy", G_CALLBACK(gtk_main_quit), NULL);
+
+	return aplicacao->run(janela);
+}

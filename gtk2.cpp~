@@ -1,0 +1,14 @@
+#include <gtkmm/application.h>
+#include <iostream>
+#include "simulador.h"
+
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+	Glib::RefPtr<Gtk::Application> aplicacao = Gtk::Application::create(argc, argv, "");
+
+  	Simulador sim;
+
+	return aplicacao->run(sim);
+}

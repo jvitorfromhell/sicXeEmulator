@@ -1,0 +1,19 @@
+#include <iostream>
+#include "Dado.h"
+
+Dado::Dado(int dado, int endereco){
+    this->dado = dado;
+    this->endereco = endereco;
+            
+}
+
+Dado& Dado:: operator=(const Dado &dadoDireita){
+    this->dado = dadoDireita.dado;
+    this->endereco = dadoDireita.endereco;
+    return *this;
+}
+
+int Dado::getDado(){return dado;}
+int Dado::getEndereco(){return endereco;}
+void Dado::setDado(int dado){ this->dado = dado;}
+void Dado::setEndereco(int endereco){this->endereco = endereco;}

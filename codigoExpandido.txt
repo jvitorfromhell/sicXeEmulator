@@ -1,0 +1,5 @@
+EXTDEF batata
+SUB arroz
+HLT
+arroz:	WORD 3
+batata:	WORD 
